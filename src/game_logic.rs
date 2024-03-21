@@ -17,13 +17,14 @@ pub fn get_input(board : &[char]) -> usize {
     loop {
         let mut input_str = String::new();
         std::io::stdin().read_line(&mut input_str).expect("error: unable to read user input");
-        let input: usize = input_str.trim().parse().expect("Invalid input");
-        let out_of_range: bool = input > 8;
-        // TODO: panics on letter inputs
-        if out_of_range || !(board[input].is_digit(10)) {
-            println!("Invalid Input, try again");
-        } else {
-            return input;
+        match input_str.trim().parse::<usize>() {
+            Ok(input) => {
+                if input <= 8 && board[input].is_digit(10) {
+                    return input;
+                }
+            }
+            Err(_) => {},
         }
+        println!("Invalid Input, try again")
     }
 }
