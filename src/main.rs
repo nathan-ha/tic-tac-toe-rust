@@ -7,14 +7,18 @@ fn main() {
                                  '6', '7', '8'];
     let mut turn = 0;
     loop {
+        println!("--------------------------------");
         dislay_board(&board);
         if turn % 2 == 0 {
             // player 1 move
+            println!("Player 1 move");
             board[get_input(&board)] = 'X';
         } else {
             // player 2 move
+            println!("Player 2 move");
             board[get_input(&board)] = 'O';
         }
+        println!("--------------------------------");
         turn += 1;
     }
 }

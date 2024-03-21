@@ -1,3 +1,4 @@
+// displays the board in terminal
 pub fn dislay_board(board : &[char]) {
     for i in 0..3 {
         print!(" {} ", board[i]);
@@ -13,6 +14,8 @@ pub fn dislay_board(board : &[char]) {
     println!();
 }
 
+// gets user input for the position on the board, and validates input
+// returns the input
 pub fn get_input(board : &[char]) -> usize {
     loop {
         let mut input_str = String::new();
@@ -27,4 +30,9 @@ pub fn get_input(board : &[char]) -> usize {
         }
         println!("Invalid Input, try again")
     }
+}
+
+// returns 'x' or 'o' for the respective winner. 't' for tie.
+pub fn check_winner(board : &[char]) -> char {
+
 }
